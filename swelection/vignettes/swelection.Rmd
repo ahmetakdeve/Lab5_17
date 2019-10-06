@@ -54,7 +54,7 @@ The code above would return a data frame where you see the result in all municip
 
 ### Shiny app
 
-There is also a shiny app that has links to this package. The Shiny app can be used to visualize the result of the municipal elections in Linköping for different regions in Linköping.
+There is also a shiny app that has links to this package. The Shiny app can be used to visualize the result of the municipal elections in Linkoping for different regions in Linkoping.
 
 ```{r,eval=FALSE,results='hide'}
 library(shiny)
