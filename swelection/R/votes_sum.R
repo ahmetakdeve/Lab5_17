@@ -31,21 +31,18 @@ votes_sum<-function(the_code){
     cbind.data.frame(parent, kids, stringsAsFactors=FALSE)
     
   }))
-  if(the_code=="00K"){
-  df2<-df[,c(1,2,12,13,15)]
-  }else{
-    df2<-df[,c(1,2,10,11,13)]
-  }
-  colnames(df2)<-c("KOD","NAMN","PARTI","ROSTER","PROCENT")
+
+  
+  df2<-df[,c("KOD","NAMN","PARTI","PROCENT")]
+  colnames(df2)<-c("KOD","NAMN","PARTI","PROCENT")
   df2<-df2[!is.na(df2$PARTI),]
   parties<-c("M","C","FP","KD","S","V","MP","SD","FI")
 
   df2<-df2[df2$PARTI%in%parties,]
 
   df2<-stats::reshape(df2,idvar = c("KOD","NAMN"),timevar = "PARTI",direction = "wide")
-  
-  return(df2)
+
+   return(df2)
   
 }
 
-tmp<-votes_sum("00K")
