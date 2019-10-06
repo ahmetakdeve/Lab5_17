@@ -27,8 +27,8 @@ votes_spec<-function(mun_code){
     
   }))
   
-  df2<-df[,c(1,2,7,8,10)]
-  colnames(df2)<-c("KOD","NAMN","PARTI","ROSTER","PROCENT")
+  df2<-df[,c("KOD","NAMN","PARTI","PROCENT")]
+  colnames(df2)<-c("KOD","NAMN","PARTI","PROCENT")
   df2<-df2[!is.na(df2$PARTI),]
   
   parties<-c("M","C","FP","KD","S","V","MP","SD","FI")
@@ -39,3 +39,5 @@ votes_spec<-function(mun_code){
   
   return(df2)
 }
+
+
