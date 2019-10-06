@@ -4,7 +4,7 @@
 #' 
 #' @param the_code A The municipality code
 #' 
-#' @return A data frame with 20 columns containing results in both numbers and percentages for each party and 290 rows for each municipality in Sweden
+#' @return A data frame with 20 columns containing in percentages for each party and 290 rows for each municipality in Sweden
 #' 
 #' @import utils xml2 tidyverse stringr tidyr methods dplyr
 #' 
