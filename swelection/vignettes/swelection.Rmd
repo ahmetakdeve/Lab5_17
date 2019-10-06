@@ -1,0 +1,64 @@
+---
+title: "swelection package"
+description: "Description for the swelection-package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{swelection package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Introduction
+
+This is an introduction to the `swelection` package. `swelection` is used to get the 2014 election results in Sweden for the nine biggest parties.The package contains two functions. There is also a shiny app that is linked to `swelection` package. 
+In order to be able to use the package, one should have a reasonable look at the municipal codes in Sweden which can be found at: https://skl.se/tjanster/kommunerochregioner/faktakommunerochregioner/kommunkoder.2052.html
+
+### Get started with the package
+The first thing to do is to download the package from from using `install_github` function from the `devtools` package.
+Do not forget to set the `build_vignettes` statement in `install_github` to TRUE. That way, you force R to upload the
+vignette for the package.
+
+```{r,eval=FALSE,results='hide'}
+library(devtools)
+install_github("https://github.com/ahmetakdeve/Lab5_17",subdir = "swelection",build_vignettes = TRUE)
+library(swelection)
+```
+
+### votes_spec function
+The `swelection` package has two function. One of them is `votes_spec`. `votes_spec` function has just one argument which
+is `mun_code`, the municipality code for the municipality you want the result for. The function makes it possible to
+pick out a specific part of a municipality where you can see how it has been voted. In the election, each person votes 
+for three different regions. You vote for the municipality you belong to, the county council you belong to and the state.
+In this function, the municipal code ends with a "K" which is intended for the municipal election, "L" which is intended
+for the county election and "R" which indicates that the result will be for the state(national) election. The result will be present in percent for each area of a municipality.
+
+```{r,eval=FALSE,results='hide'}
+example<-votes_spec("0580K")
+```
+
+The code above returns a data frame,named "example" in this case, containing the result of the municipal election in Linköping. You can see how many 
+percent each party received in different parts of Linköping. "0580" is the municipality code for Linköping and the "K"
+at the end of the municipality code indicates that we want the result for the municipal election.
+
+### votes_sum function
+
+If you want a summed result for a municipality and NOT for specific parts of a municipality, you can use 
+the `votes_sum` function. The only argument in the function, `the_code`, can only take three values. 
+00K" gives the result in the municipal elections, "00L" gives the result in the county elections per municipality and "00R" gives the result in the national elections per municipality. The returned data frame will contain 290 observations since we have 290 municipalities in Sweden. The election result is again presented as a percentage for each party.
+
+```{r,eval=FALSE,results='hide'}
+example<-votes_sum("00K")
+```
+
+The code above would return a data frame where you see the result in all municipal elections in Sweden for all municipalities.
+
+### Shiny app
+
+There is also a shiny app that has links to this package. The Shiny app can be used to visualize the result of the municipal elections in Linköping for different regions in Linköping.
+
+```{r,eval=FALSE,results='hide'}
+library(shiny)
+runGitHub('ahmetakdeve/group17_shiny')
+```
+
+In the search box in the app you enter the name of an election region in Linköping, such as `Bankekind`.

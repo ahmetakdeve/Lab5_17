@@ -9,4 +9,6 @@ Description: Something something.
 License: GPL-2
 Encoding: UTF-8
 RoxygenNote: 6.1.1
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
 Imports: dplyr, tidyverse, methods, stringr, tidyr, xml2

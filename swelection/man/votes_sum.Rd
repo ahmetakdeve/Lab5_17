@@ -10,7 +10,7 @@ votes_sum(the_code)
 \item{the_code}{A The municipality code}
 }
 \value{
-A data frame with 20 columns containing results in both numbers and percentages for each party and 290 rows for each municipality in Sweden
+A data frame with 20 columns containing in percentages for each party and 290 rows for each municipality in Sweden
 }
 \description{
 The function returns the result per municipality. The function can take 3 values. "00K" gives the result in the municipal elections, "00L" gives the result in the county elections per municipality and "00R" gives the result in the national elections per municipality.
